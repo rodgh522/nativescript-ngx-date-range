@@ -1,2 +1,2 @@
-pod 'CalendarDateRangePicker', :git => 'https://github.com/dudipsh/CalendarDateRangePicker.git'
+pod 'CalendarDateRangePicker', :git => 'https://github.com/rodgh522/CalendarDateRangePicker.git'
 
