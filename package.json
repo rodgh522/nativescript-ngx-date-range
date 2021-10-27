@@ -2,8 +2,10 @@
 	"name": "nativescript-ngx-date-range",
 	"version": "1.0.8",
 	"typings": "index.d.ts",
-			"android": "8.0.0",
-			ios": "8.0.0"
+	"nativescript": {
+		"platforms": {
+			"android": "6.0.0",
+			"ios": "6.0.1"
 		}
 	},
 	"repository": {
@@ -11,8 +13,6 @@
 		"url": "https://github.com/rodgh522/nativescript-ngx-date-range.git"
 	},
 	"scripts": {
-                "build": "npm run tsc && npm run build.native",
-    "build.native": "node scripts/build-native.js",
 		"tsc": "npm i && tsc",
 		"tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\"",
 		"ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**' --exclude '**/platforms/**'",
