@@ -14,18 +14,20 @@ var CalendarDateRangePickerViewControllerDelegateImpl = /** @class */ (function 
   function CalendarDateRangePickerViewControllerDelegateImpl() {
       return _super !== null && _super.apply(this, arguments) || this;
   }
-  CalendarDateRangePickerViewControllerDelegateImpl.initDelegate = function (owner) {
-      var delegate = CalendarDateRangePickerViewControllerDelegateImpl.new();
-      delegate.owner = new WeakRef(owner);
-      return delegate;
+  CalendarDateRangePickerViewControllerDelegateImpl.initDelegate = (owner, callback)=> {
+      this.delegate = CalendarDateRangePickerViewControllerDelegateImpl.new();
+      this.delegate.owner = new WeakRef(owner);
+      this.delegate.callback = callback;
+      return this.delegate;
   };
 
-  CalendarDateRangePickerViewControllerDelegateImpl.prototype.didPickDateRangeWithStartDateEndDate = function(startDate, endDate) {
+  CalendarDateRangePickerViewControllerDelegateImpl.prototype.didPickDateRangeWithStartDateEndDate = (startDate, endDate)=> {
     console.log('=-=-=-=-Done=-=-=-=-=-=-=-');
     const currentViewController = frame_1.topmost().viewController;
     currentViewController.dismissViewControllerAnimatedCompletion(true, () => {
         selectedDates.startDate = startDate;
         selectedDates.endDate = endDate;
+        this.delegate.callback(selectedDates);
     });
   };
 
@@ -60,17 +62,16 @@ class NgxDateRange extends ngx_date_range_common_1.Common {
     constructor() {
         super();
     }
-    showDateRangePicker() {
+    showDateRangePicker(callback) {
         resetSelectedDates();
         
         const nativeView = CalendarDateRangePickerViewController.new().initWithCollectionViewLayout(UICollectionViewFlowLayout.new().init());
-        this.delegate = CalendarDateRangePickerViewControllerDelegateImpl.initDelegate(this);
+        this.delegate = CalendarDateRangePickerViewControllerDelegateImpl.initDelegate(this, callback);
         nativeView.delegate = this.delegate;
         var myCurrentDate = new Date();
         var maximumDateYear = new Date(myCurrentDate.setFullYear(myCurrentDate.getFullYear() + 2));
         nativeView.minimumDate = new Date();
-        nativeView.maximumDate = new Date(myCurrentDate.getFullYear(), myCurrentDate.getMonth() + 2, myCurrentDate.getDate());
-        nativeView.titleText = '날짜 선택';
+        nativeView.maximumDate = maximumDateYear;
         nativeView.calenderSelectionStyle = options.selectionMode;
         const navigationController = UINavigationController.new().initWithRootViewController(nativeView);
         const currentViewController = frame_1.topmost().viewController;
