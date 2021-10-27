@@ -69,7 +69,8 @@ class NgxDateRange extends ngx_date_range_common_1.Common {
         var myCurrentDate = new Date();
         var maximumDateYear = new Date(myCurrentDate.setFullYear(myCurrentDate.getFullYear() + 2));
         nativeView.minimumDate = new Date();
-        nativeView.maximumDate = maximumDateYear;
+        nativeView.maximumDate = new Date(myCurrentDate.getFullYear(), myCurrentDate.getMonth() + 2, myCurrentDate.getDate());
+        nativeView.titleText = '날짜 선택';
         nativeView.calenderSelectionStyle = options.selectionMode;
         const navigationController = UINavigationController.new().initWithRootViewController(nativeView);
         const currentViewController = frame_1.topmost().viewController;
