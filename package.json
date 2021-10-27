@@ -1,0 +1,90 @@
+{
+  "_args": [
+    [
+      "nativescript-ngx-date-range@1.0.7",
+      "/Users/rohbi/workspace/salevis-nativescript"
+    ]
+  ],
+  "_from": "nativescript-ngx-date-range@1.0.7",
+  "_id": "nativescript-ngx-date-range@1.0.7",
+  "_inBundle": false,
+  "_integrity": "sha512-ZroK0QQzEtTn/UCIlm9nKdjb/hNgYmtT9CHNUol6a6LxONQoacU1tNEEg7ufjvab+cWHSsVyxE0xa3whK0cGOA==",
+  "_location": "/nativescript-ngx-date-range",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "version",
+    "registry": true,
+    "raw": "nativescript-ngx-date-range@1.0.7",
+    "name": "nativescript-ngx-date-range",
+    "escapedName": "nativescript-ngx-date-range",
+    "rawSpec": "1.0.7",
+    "saveSpec": null,
+    "fetchSpec": "1.0.7"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/nativescript-ngx-date-range/-/nativescript-ngx-date-range-1.0.7.tgz",
+  "_spec": "1.0.7",
+  "_where": "/Users/rohbi/workspace/salevis-nativescript",
+  "author": {
+    "name": "Dudi"
+  },
+  "bootstrapper": "nativescript-plugin-seed",
+  "bugs": {
+    "url": "https://github.com/dudipsh/nativescript-ngx-date-range/issues"
+  },
+  "dependencies": {},
+  "description": "Date Range Picker for Nativescript",
+  "devDependencies": {
+    "nativescript-angular": "^8.2.0",
+    "prompt": "^1.0.0",
+    "rimraf": "^2.6.3",
+    "semver": "^5.6.0",
+    "tns-core-modules": "^6.0.0",
+    "tns-platform-declarations": "^6.0.0",
+    "tslint": "^5.12.1",
+    "typescript": "~3.4.5"
+  },
+  "homepage": "https://github.com/dudipsh/nativescript-ngx-date-range",
+  "keywords": [
+    "NativeScript",
+    "JavaScript",
+    "Android",
+    "daterange",
+    "calendar",
+    "date range",
+    "iOS"
+  ],
+  "license": "Apache-2.0",
+  "main": "ngx-date-range",
+  "name": "nativescript-ngx-date-range",
+  "nativescript": {
+    "platforms": {
+      "android": "6.0.0",
+      "ios": "6.0.1"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dudipsh/nativescript-ngx-date-range.git"
+  },
+  "scripts": {
+    "build": "npm run tsc && npm run build.native",
+    "build.native": "node scripts/build-native.js",
+    "ci.tslint": "npm i && tslint '**/*.ts' --config '../tslint.json' --exclude '**/node_modules/**' --exclude '**/platforms/**'",
+    "clean": "npm run demo.reset && npm run demo-angular.reset && npx rimraf -- node_modules package-lock.json && npm i",
+    "demo-angular.android": "npm run tsc && cd ../demo-angular && tns debug android --emulator",
+    "demo-angular.ios": "npm run tsc && cd ../demo-angular && tns debug ios --hmr --emulator",
+    "demo-angular.reset": "cd ../demo-angular && npx rimraf -- hooks node_modules platforms package-lock.json",
+    "demo.android": "npm run tsc && cd ../demo && tns run android --emulator",
+    "demo.ios": "npm run tsc && cd ../demo && tns run ios --emulator",
+    "demo.reset": "cd ../demo && npx rimraf -- hooks node_modules platforms package-lock.json",
+    "plugin.prepare": "npm run build && cd ../demo && tns plugin remove nativescript-ngx-date-range && tns plugin add ../src && cd ../demo-angular && tns plugin remove nativescript-ngx-date-range && tns plugin add ../src",
+    "prepack": "npm run build.native",
+    "tsc": "npm i && tsc",
+    "tslint": "cd .. && tslint \"**/*.ts\" --config tslint.json --exclude \"**/node_modules/**\""
+  },
+  "typings": "index.d.ts",
+  "version": "1.0.7"
+}
