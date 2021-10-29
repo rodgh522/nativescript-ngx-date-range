@@ -73,6 +73,7 @@ class NgxDateRange extends ngx_date_range_common_1.Common {
         nativeView.minimumDate = new Date();
         nativeView.maximumDate = maximumDateYear;
         nativeView.calenderSelectionStyle = options.selectionMode;
+        nativeView.titleText = "예약 일정";
         const navigationController = UINavigationController.new().initWithRootViewController(nativeView);
         const currentViewController = frame_1.topmost().viewController;
         currentViewController.delegate = this.delegate;
